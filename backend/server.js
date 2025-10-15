@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
 
 // Handle uncaught exceptions
 process.on("uncaughtException", (err) => {
@@ -16,12 +17,12 @@ app.use(express.json());
 
 // MongoDB Connection
 mongoose
-  .connect("mongodb://127.0.0.1:27017/registerDB", {
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("Connected to MongoDB");
+    console.log("Connected to MongoDB Cloud");
   })
   .catch((err) => {
     console.error("Could not connect to MongoDB:", err);
