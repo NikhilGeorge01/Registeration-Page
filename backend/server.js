@@ -10,7 +10,13 @@ process.on("uncaughtException", (err) => {
 });
 
 const app = express();
-
+app.use(
+  cors({
+    origin: "https://registeration-page-frontend.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 // Middleware
 app.use(cors());
 app.use(express.json());
