@@ -21,7 +21,7 @@ function Register() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/register",
+        `${process.env.REACT_APP_API_URL}/register`,
         formData
       );
       setMessage(response.data.message);
