@@ -18,7 +18,7 @@ app.use(
   })
 );
 // Middleware
-app.use(cors());
+
 app.use(express.json());
 
 // MongoDB Connection
